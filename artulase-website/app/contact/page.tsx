@@ -153,17 +153,31 @@ export default async function ContactPage() {
           <div>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Location</h2>
             {contact?.mapUrl ? (
-              <div className="w-full h-96 bg-gray-100 rounded-lg overflow-hidden">
-                <iframe
-                  src={contact.mapUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Company Location"
-                />
+              <div className="space-y-4">
+                <div className="w-full h-96 bg-gray-100 rounded-lg overflow-hidden relative">
+                  <iframe
+                    src={contact.mapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Company Location"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                  />
+                </div>
+                <a
+                  href={`https://maps.app.goo.gl/iQNaw6zphWweVrda7`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  Open in Google Maps
+                </a>
               </div>
             ) : (
               <div className="w-full h-96 bg-gray-100 rounded-lg flex items-center justify-center">
