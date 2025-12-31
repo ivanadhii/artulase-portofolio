@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  # Next.js Web
+  nextjs-web:
+    build: .
+    container_name: artulase-web
+    working_dir: /app
+    volumes:
+      - ./artulase-website:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SANITY_PROJECT_ID=vsddgaxj
+      - NEXT_PUBLIC_SANITY_DATASET=production
+      - NEXT_PUBLIC_SANITY_API_VERSION=2024-01-01
+      - NEXT_PUBLIC_SITE_URL=https://artulase.gatevans.com
+      - NEXT_PUBLIC_SANITY_STUDIO_URL=https://artulase.sanity.studio
+    command: sh -c "npm install && npm run build && npm run start"
+    restart: unless-stopped
+    networks:
+      - artulase-network
+
+networks:
+  artulase-network:
+    driver: bridge
