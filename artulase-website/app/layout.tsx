@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Artulase - Professional Printing Services",
-  description: "Professional printing solutions for your business needs. High-quality offset, digital, and large format printing services.",
+  title: "Artulase - Solusi Packaging & Printing",
+  description: "Solusi kemasan dan printing profesional untuk kebutuhan bisnis Anda. Lebih dari 20 tahun pengalaman melayani UKM hingga perusahaan multinasional.",
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${inter.className} antialiased`}>
         <Header />
         {children}

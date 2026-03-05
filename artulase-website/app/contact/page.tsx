@@ -8,10 +8,10 @@ export default async function ContactPage() {
       <div className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            {contact?.title || 'Contact Us'}
+            {contact?.title || 'Hubungi Kami'}
           </h1>
           <p className="text-xl text-gray-300">
-            Get in touch with us for your printing needs
+            Hubungi kami untuk kebutuhan printing dan packaging Anda
           </p>
         </div>
       </div>
@@ -20,7 +20,7 @@ export default async function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Hubungi Kami</h2>
 
             <div className="space-y-6">
               {contact?.email && (
@@ -47,7 +47,7 @@ export default async function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Telepon</h3>
                     <a href={`tel:${contact.phone}`} className="text-blue-600 hover:underline">
                       {contact.phone}
                     </a>
@@ -70,7 +70,7 @@ export default async function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-blue-600 hover:underline"
                     >
-                      Chat on WhatsApp
+                      Chat di WhatsApp
                     </a>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export default async function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Address</h3>
+                    <h3 className="text-lg font-semibold text-gray-900">Alamat</h3>
                     <address className="text-gray-600 not-italic">
                       {contact.address.street}<br />
                       {contact.address.city}, {contact.address.province} {contact.address.postalCode}<br />
@@ -99,7 +99,7 @@ export default async function ContactPage() {
             {/* Working Hours */}
             {contact?.workingHours && contact.workingHours.length > 0 && (
               <div className="mt-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Working Hours</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Jam Operasional</h3>
                 <div className="bg-gray-50 rounded-lg p-6">
                   <dl className="space-y-2">
                     {contact.workingHours.map((schedule, index) => (
@@ -116,7 +116,7 @@ export default async function ContactPage() {
             {/* Social Media */}
             {contact?.social && (
               <div className="mt-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Ikuti Kami</h3>
                 <div className="flex gap-4">
                   {contact.social.instagram && (
                     <a
@@ -151,7 +151,7 @@ export default async function ContactPage() {
 
           {/* Map */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Location</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">Lokasi</h2>
             {contact?.mapUrl ? (
               <div className="space-y-4">
                 <div className="w-full h-96 bg-gray-100 rounded-lg overflow-hidden relative">
@@ -168,7 +168,7 @@ export default async function ContactPage() {
                   />
                 </div>
                 <a
-                  href={`https://maps.app.goo.gl/iQNaw6zphWweVrda7`}
+                  href={process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
@@ -176,12 +176,12 @@ export default async function ContactPage() {
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                   </svg>
-                  Open in Google Maps
+                  Buka di Google Maps
                 </a>
               </div>
             ) : (
               <div className="w-full h-96 bg-gray-100 rounded-lg flex items-center justify-center">
-                <p className="text-gray-500">Map will be displayed here</p>
+                <p className="text-gray-500">Peta akan ditampilkan di sini</p>
               </div>
             )}
           </div>

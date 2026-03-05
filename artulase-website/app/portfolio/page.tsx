@@ -10,9 +10,9 @@ export default async function PortfolioPage() {
     <div className="min-h-screen bg-white">
       <div className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Portfolio</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Portfolio Kami</h1>
           <p className="text-xl text-gray-300">
-            Showcasing our best work and success stories
+            Karya terbaik dan kisah sukses kami
           </p>
         </div>
       </div>
@@ -20,7 +20,7 @@ export default async function PortfolioPage() {
       <main className="container mx-auto px-4 py-16">
         {portfolios.length === 0 ? (
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center">
-            <p className="text-yellow-800 text-lg">No portfolio items available yet.</p>
+            <p className="text-yellow-800 text-lg">Belum ada portfolio tersedia.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,7 +41,7 @@ export default async function PortfolioPage() {
                       />
                       {portfolio.featured && (
                         <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                          Featured
+                          Unggulan
                         </div>
                       )}
                     </div>
@@ -66,11 +66,11 @@ export default async function PortfolioPage() {
                     </h2>
 
                     {portfolio.client && (
-                      <p className="text-gray-600 mb-4">Client: {portfolio.client}</p>
+                      <p className="text-gray-600 mb-4">Klien: {portfolio.client}</p>
                     )}
 
                     <div className="text-blue-600 font-medium group-hover:underline">
-                      View Project →
+                      Lihat Proyek →
                     </div>
                   </div>
                 </div>

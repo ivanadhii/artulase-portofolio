@@ -1,3 +1,6 @@
+import type { SanityImageSource } from '@sanity/image-url'
+import type { PortableTextBlock } from '@portabletext/types'
+
 export interface Service {
   _id: string
   _type: 'service'
@@ -6,7 +9,7 @@ export interface Service {
     current: string
   }
   description?: string
-  icon?: any
+  icon?: SanityImageSource
   features?: string[]
   priceRange?: string
   order?: number
@@ -20,8 +23,8 @@ export interface Product {
     current: string
   }
   category?: string
-  description?: any[]
-  images?: any[]
+  description?: PortableTextBlock[]
+  images?: SanityImageSource[]
   specifications?: Array<{
     label: string
     value: string
@@ -39,8 +42,8 @@ export interface Portfolio {
   }
   client?: string
   category?: string
-  description?: any[]
-  images: any[]
+  description?: PortableTextBlock[]
+  images: SanityImageSource[]
   completionDate?: string
   services?: Service[]
   featured?: boolean
@@ -51,8 +54,8 @@ export interface About {
   _type: 'about'
   title?: string
   tagline?: string
-  description?: any[]
-  image?: any
+  description?: PortableTextBlock[]
+  image?: SanityImageSource
   yearEstablished?: number
   mission?: string
   vision?: string
@@ -71,7 +74,7 @@ export interface Team {
   _type: 'team'
   name: string
   position: string
-  photo?: any
+  photo?: SanityImageSource
   bio?: string
   email?: string
   phone?: string

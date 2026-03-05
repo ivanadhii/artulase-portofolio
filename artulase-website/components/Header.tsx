@@ -18,12 +18,12 @@ export default function Header() {
           <ul className="hidden md:flex items-center gap-6 lg:gap-8">
             <li>
               <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors">
-                Home
+                Beranda
               </Link>
             </li>
             <li>
               <Link href="/services" className="text-gray-700 hover:text-gray-900 transition-colors">
-                Services
+                Layanan
               </Link>
             </li>
             <li>
@@ -33,7 +33,7 @@ export default function Header() {
             </li>
             <li>
               <Link href="/about" className="text-gray-700 hover:text-gray-900 transition-colors">
-                About
+                Tentang Kami
               </Link>
             </li>
             <li>
@@ -41,7 +41,7 @@ export default function Header() {
                 href="/contact"
                 className="bg-gray-900 text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors"
               >
-                Contact
+                Kontak
               </Link>
             </li>
           </ul>
@@ -74,7 +74,7 @@ export default function Header() {
                   className="block text-gray-700 hover:text-gray-900 transition-colors py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Home
+                  Beranda
                 </Link>
               </li>
               <li>
@@ -83,7 +83,7 @@ export default function Header() {
                   className="block text-gray-700 hover:text-gray-900 transition-colors py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Services
+                  Layanan
                 </Link>
               </li>
               <li>
@@ -101,7 +101,7 @@ export default function Header() {
                   className="block text-gray-700 hover:text-gray-900 transition-colors py-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  About
+                  Tentang Kami
                 </Link>
               </li>
               <li>
@@ -110,7 +110,7 @@ export default function Header() {
                   className="block bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors text-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Contact
+                  Kontak
                 </Link>
               </li>
             </ul>

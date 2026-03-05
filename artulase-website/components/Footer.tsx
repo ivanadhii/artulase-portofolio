@@ -11,16 +11,16 @@ export default async function Footer() {
           <div className="sm:col-span-2 md:col-span-1">
             <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Artulase</h3>
             <p className="text-gray-400 text-sm md:text-base">
-              Professional printing services for all your business needs.
+              Solusi kemasan dan printing profesional untuk kebutuhan bisnis Anda.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Quick Links</h4>
+            <h4 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Tautan Cepat</h4>
             <ul className="space-y-2 text-sm md:text-base">
               <li>
                 <Link href="/services" className="text-gray-400 hover:text-white transition-colors">
-                  Services
+                  Layanan
                 </Link>
               </li>
               <li>
@@ -30,19 +30,19 @@ export default async function Footer() {
               </li>
               <li>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
-                  About Us
+                  Tentang Kami
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
+                  Kontak
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Contact Info</h4>
+            <h4 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Informasi Kontak</h4>
             <ul className="space-y-2 text-gray-400 text-sm md:text-base">
               {contact?.email && (
                 <li>
@@ -74,7 +74,7 @@ export default async function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Follow Us</h4>
+            <h4 className="font-semibold mb-3 md:mb-4 text-sm md:text-base">Ikuti Kami</h4>
             <div className="flex gap-4 text-sm md:text-base">
               {contact?.social?.instagram && (
                 <a
@@ -101,7 +101,7 @@ export default async function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-6 md:pt-8 text-center text-gray-400 text-sm md:text-base">
-          <p>&copy; {new Date().getFullYear()} Artulase. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Artulase. Hak cipta dilindungi.</p>
         </div>
       </div>
     </footer>

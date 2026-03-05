@@ -32,13 +32,13 @@ export default async function PortfolioDetailPage({
             href="/portfolio"
             className="text-gray-300 hover:text-white mb-4 inline-block"
           >
-            ← Back to Portfolio
+            ← Kembali ke Portfolio
           </Link>
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">{portfolio.title}</h1>
               {portfolio.client && (
-                <p className="text-xl text-gray-300">Client: {portfolio.client}</p>
+                <p className="text-xl text-gray-300">Klien: {portfolio.client}</p>
               )}
             </div>
             {portfolio.category && (
@@ -81,38 +81,38 @@ export default async function PortfolioDetailPage({
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Description</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Deskripsi Proyek</h2>
             {portfolio.description ? (
               <div className="prose max-w-none text-gray-600">
                 <PortableText value={portfolio.description} />
               </div>
             ) : (
-              <p className="text-gray-600">No description available</p>
+              <p className="text-gray-600">Deskripsi tidak tersedia</p>
             )}
           </div>
 
           <div>
             <div className="bg-gray-50 rounded-lg p-6 sticky top-24">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Project Details</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Detail Proyek</h3>
 
               <dl className="space-y-4">
                 {portfolio.client && (
                   <div>
-                    <dt className="text-sm font-medium text-gray-500">Client</dt>
+                    <dt className="text-sm font-medium text-gray-500">Klien</dt>
                     <dd className="text-gray-900">{portfolio.client}</dd>
                   </div>
                 )}
 
                 {portfolio.category && (
                   <div>
-                    <dt className="text-sm font-medium text-gray-500">Category</dt>
+                    <dt className="text-sm font-medium text-gray-500">Kategori</dt>
                     <dd className="text-gray-900">{portfolio.category}</dd>
                   </div>
                 )}
 
                 {portfolio.completionDate && (
                   <div>
-                    <dt className="text-sm font-medium text-gray-500">Completion Date</dt>
+                    <dt className="text-sm font-medium text-gray-500">Tanggal Selesai</dt>
                     <dd className="text-gray-900">
                       {new Date(portfolio.completionDate).toLocaleDateString('en-US', {
                         year: 'numeric',
@@ -124,7 +124,7 @@ export default async function PortfolioDetailPage({
 
                 {portfolio.services && portfolio.services.length > 0 && (
                   <div>
-                    <dt className="text-sm font-medium text-gray-500 mb-2">Services Used</dt>
+                    <dt className="text-sm font-medium text-gray-500 mb-2">Layanan Digunakan</dt>
                     <dd className="space-y-2">
                       {portfolio.services.map((service) => (
                         <Link
@@ -145,7 +145,7 @@ export default async function PortfolioDetailPage({
                   href="/contact"
                   className="block text-center bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
                 >
-                  Start Your Project
+                  Mulai Proyek Anda
                 </Link>
               </div>
             </div>

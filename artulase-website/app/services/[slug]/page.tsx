@@ -31,7 +31,7 @@ export default async function ServiceDetailPage({
             href="/services"
             className="text-gray-300 hover:text-white mb-4 inline-block"
           >
-            ← Back to Services
+            ← Kembali ke Layanan
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{service.title}</h1>
           {service.priceRange && (
@@ -56,14 +56,14 @@ export default async function ServiceDetailPage({
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">About This Service</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Tentang Layanan Ini</h2>
             <p className="text-gray-600 text-lg mb-8">
-              {service.description || 'No description available'}
+              {service.description || 'Deskripsi tidak tersedia'}
             </p>
 
             {service.features && service.features.length > 0 && (
               <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Features</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Fitur</h3>
                 <ul className="space-y-3">
                   {service.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
@@ -89,16 +89,16 @@ export default async function ServiceDetailPage({
 
             <div className="bg-blue-50 rounded-lg p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Interested in this service?
+                Tertarik dengan layanan ini?
               </h3>
               <p className="text-gray-600 mb-4">
-                Contact us to discuss your project and get a custom quote.
+                Hubungi kami untuk mendiskusikan proyek Anda dan dapatkan penawaran khusus.
               </p>
               <Link
                 href="/contact"
                 className="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
               >
-                Get in Touch
+                Hubungi Kami
               </Link>
             </div>
           </div>

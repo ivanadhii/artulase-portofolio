@@ -10,9 +10,9 @@ export default async function ServicesPage() {
     <div className="min-h-screen bg-white">
       <div className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Layanan Kami</h1>
           <p className="text-xl text-gray-300">
-            Professional printing solutions for your business
+            Solusi printing profesional untuk kebutuhan bisnis Anda
           </p>
         </div>
       </div>
@@ -20,7 +20,7 @@ export default async function ServicesPage() {
       <main className="container mx-auto px-4 py-16">
         {services.length === 0 ? (
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center">
-            <p className="text-yellow-800 text-lg">No services available yet.</p>
+            <p className="text-yellow-800 text-lg">Belum ada layanan tersedia.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -47,7 +47,7 @@ export default async function ServicesPage() {
                   </h2>
 
                   <p className="text-gray-600 mb-4 line-clamp-3">
-                    {service.description || 'No description available'}
+                    {service.description || 'Deskripsi tidak tersedia'}
                   </p>
 
                   {service.features && service.features.length > 0 && (
@@ -66,7 +66,7 @@ export default async function ServicesPage() {
                   )}
 
                   <div className="mt-4 text-blue-600 font-medium group-hover:underline">
-                    Learn More →
+                    Pelajari Lebih Lanjut →
                   </div>
                 </div>
               </Link>
