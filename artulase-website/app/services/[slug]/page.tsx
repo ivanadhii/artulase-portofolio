@@ -42,7 +42,7 @@ export default async function ServiceDetailPage({
 
       <main className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
+          <div className="flex justify-center">
             {(service.image || service.icon) && (
               <div className="relative w-64 h-64 rounded-lg overflow-hidden mb-8">
                 <Image
