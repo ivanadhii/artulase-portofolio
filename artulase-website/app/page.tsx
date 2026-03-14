@@ -114,10 +114,10 @@ export default async function Home() {
                   href={`/services/${service.slug.current}`}
                   className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group"
                 >
-                  <div className="relative h-36 bg-gray-100">
+                  <div className="relative aspect-square bg-gray-100">
                     {service.image ? (
                       <Image
-                        src={urlFor(service.image).width(600).height(300).url()}
+                        src={urlFor(service.image).width(600).height(600).url()}
                         alt={service.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
