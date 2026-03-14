@@ -37,13 +37,13 @@ body {
 
 .animate-marquee {
   display: flex;
-  animation: marquee 20s linear infinite;
+  animation: marquee var(--marquee-duration, 20s) linear infinite;
   width: max-content;
 }
 
 .animate-marquee-reverse {
   display: flex;
-  animation: marquee-reverse 15s linear infinite;
+  animation: marquee-reverse var(--marquee-duration, 20s) linear infinite;
   width: max-content;
 }
 

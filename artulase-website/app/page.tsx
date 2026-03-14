@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getServices, getHero, getFeaturedPortfolios, getAbout, getContact } from '@/lib/queries'
@@ -108,7 +109,7 @@ export default async function Home() {
             <p className="text-center text-gray-400">Belum ada layanan tersedia.</p>
           ) : (
             <div className="overflow-hidden">
-              <div className="animate-marquee">
+              <div className="animate-marquee" style={{'--marquee-duration': `${services.length * 3}s`} as React.CSSProperties}>
                 {[...services, ...services].map((service, i) => (
                   <Link
                     key={`${service._id}-${i}`}
@@ -154,7 +155,7 @@ export default async function Home() {
             <p className="text-center text-gray-400">Belum ada portfolio tersedia.</p>
           ) : (
             <div className="overflow-hidden">
-              <div className="animate-marquee-reverse">
+              <div className="animate-marquee-reverse" style={{'--marquee-duration': `${portfolios.length * 3}s`} as React.CSSProperties}>
                 {[...portfolios, ...portfolios].map((portfolio, i) => (
                   <Link key={`${portfolio._id}-${i}`} href={`/portfolio/${portfolio.slug.current}`} className="group flex-shrink-0 w-64 mx-3">
                     <div className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden">
