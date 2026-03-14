@@ -8,7 +8,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: 'Invalid secret' }, { status: 401 })
   }
 
-  revalidateTag('sanity')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ;(revalidateTag as any)('sanity')
 
   return NextResponse.json({ revalidated: true, now: Date.now() })
 }
