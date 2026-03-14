@@ -5,11 +5,9 @@ export default defineCliConfig({
     projectId: 'vsddgaxj',
     dataset: 'production'
   },
+  studioHost: 'artulase',
   deployment: {
-    /**
-     * Enable auto-updates for studios.
-     * Learn more at https://www.sanity.io/docs/cli#auto-updates
-     */
     autoUpdates: true,
+    appId: 'g5u3wkezsjnvcmac0l1ydoe7',
   }
 })

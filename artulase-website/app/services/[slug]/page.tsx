@@ -28,7 +28,7 @@ export default async function ServiceDetailPage({
       <div className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
           <Link
-            href="/services"
+            href="/#layanan"
             className="text-gray-300 hover:text-white mb-4 inline-block"
           >
             ← Kembali ke Layanan

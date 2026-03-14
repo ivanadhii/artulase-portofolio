@@ -102,43 +102,37 @@ export default async function Home() {
       {/* ── LAYANAN KAMI ── */}
       <section id="layanan" className="h-screen snap-start flex items-center bg-gray-50">
         <div className="container mx-auto px-8 pt-16 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">Layanan Kami</h2>
-          <p className="text-gray-500 text-center mb-8">Solusi lengkap untuk kebutuhan packaging dan printing bisnis Anda</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1 text-center">Layanan Kami</h2>
+          <p className="text-gray-500 text-center mb-6">Solusi lengkap untuk kebutuhan packaging dan printing bisnis Anda</p>
           {services.length === 0 ? (
             <p className="text-center text-gray-400">Belum ada layanan tersedia.</p>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {services.slice(0, 6).map((service) => (
                 <Link
                   key={service._id}
                   href={`/services/${service.slug.current}`}
-                  className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+                  className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group flex items-center gap-4 p-4"
                 >
-                  <div className="relative aspect-square bg-gray-100">
+                  <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
                     {service.image ? (
                       <Image
-                        src={urlFor(service.image).width(600).height(600).url()}
+                        src={urlFor(service.image).width(128).height(128).url()}
                         alt={service.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
+                    ) : service.icon ? (
+                      <Image src={urlFor(service.icon).width(96).height(96).url()} alt={service.title} fill className="object-contain p-1" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gray-100">
-                        {service.icon ? (
-                          <div className="relative h-12 w-12">
-                            <Image src={urlFor(service.icon).width(96).height(96).url()} alt={service.title} fill className="object-contain" />
-                          </div>
-                        ) : (
-                          <span className="text-gray-300 text-4xl font-bold">A</span>
-                        )}
-                      </div>
+                      <span className="w-full h-full flex items-center justify-center text-gray-300 text-2xl font-bold">A</span>
                     )}
                   </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-semibold text-gray-900 group-hover:text-blue-600 transition-colors leading-tight mb-1">
                       {service.title}
                     </h3>
-                    <p className="text-sm text-gray-500 line-clamp-2">
+                    <p className="text-xs text-gray-500 line-clamp-2">
                       {service.description || 'Layanan berkualitas untuk kebutuhan bisnis Anda'}
                     </p>
                   </div>
