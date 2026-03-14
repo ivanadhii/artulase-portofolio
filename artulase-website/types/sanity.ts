@@ -9,6 +9,7 @@ export interface Service {
     current: string
   }
   description?: string
+  image?: SanityImageSource
   icon?: SanityImageSource
   features?: string[]
   priceRange?: string

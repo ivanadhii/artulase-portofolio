@@ -1,0 +1,16 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+RUN apk add --no-cache libc6-compat
+
+COPY cms/artulase-website/package*.json ./
+
+RUN npm ci
+
+COPY cms/artulase-website/ ./
+
+ARG SANITY_AUTH_TOKEN
+ENV SANITY_AUTH_TOKEN=$SANITY_AUTH_TOKEN
+
+CMD ["npx", "sanity", "deploy", "--no-confirm"]

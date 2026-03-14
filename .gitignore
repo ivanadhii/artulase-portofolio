@@ -43,3 +43,12 @@ tmp/
 
 # Docker
 docker-compose.override.yml
+
+# Sanity
+cms/artulase-website/.sanity/
+cms/artulase-website/dist/
+cms/artulase-website/node_modules/
+
+# Next.js build output
+artulase-website/.next/
+artulase-website/node_modules/

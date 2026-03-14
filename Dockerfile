@@ -2,10 +2,30 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install dependencies for production
 RUN apk add --no-cache libc6-compat
 
-# Set environment
-ENV NODE_ENV=development
+# Copy package files first (cached layer — only re-runs if package.json changes)
+COPY artulase-website/package*.json ./
 
-CMD ["sh"]
+RUN npm ci
+
+# Copy source
+COPY artulase-website/ ./
+
+# Build args for Next.js public env vars (needed at build time)
+ARG NEXT_PUBLIC_SANITY_PROJECT_ID
+ARG NEXT_PUBLIC_SANITY_DATASET
+ARG NEXT_PUBLIC_SANITY_API_VERSION
+ARG NEXT_PUBLIC_SITE_URL
+ARG NEXT_PUBLIC_SANITY_STUDIO_URL
+
+ENV NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID
+ENV NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET
+ENV NEXT_PUBLIC_SANITY_API_VERSION=$NEXT_PUBLIC_SANITY_API_VERSION
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_SANITY_STUDIO_URL=$NEXT_PUBLIC_SANITY_STUDIO_URL
+ENV NODE_ENV=production
+
+RUN npm run build
+
+CMD ["npm", "run", "start"]
