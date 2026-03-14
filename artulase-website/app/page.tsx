@@ -6,6 +6,9 @@ import { urlFor } from '@/lib/sanity'
 import BodyScrollSnap from '@/components/BodyScrollSnap'
 
 export default async function Home() {
+  // card width ~280px, viewport max ~1920px → need at least ceil(1920/280) ≈ 7 items per set
+  const MIN_ITEMS = 8
+
   const [services, hero, portfolios, about, contact] = await Promise.all([
     getServices(),
     getHero(),
@@ -109,8 +112,13 @@ export default async function Home() {
             <p className="text-center text-gray-400">Belum ada layanan tersedia.</p>
           ) : (
             <div className="overflow-hidden">
-              <div className="animate-marquee" style={{'--marquee-duration': `${services.length * 3}s`} as React.CSSProperties}>
-                {[...services, ...services].map((service, i) => (
+              {(() => {
+                const repeats = Math.ceil(MIN_ITEMS / services.length)
+                const set = Array(repeats).fill(services).flat()
+                const duration = `${set.length * 3}s`
+                return (
+              <div className="animate-marquee" style={{'--marquee-duration': duration} as React.CSSProperties}>
+                {[...set, ...set].map((service, i) => (
                   <Link
                     key={`${service._id}-${i}`}
                     href={`/services/${service.slug.current}`}
@@ -141,6 +149,7 @@ export default async function Home() {
                   </Link>
                 ))}
               </div>
+                )})()}
             </div>
           )}
         </div>
@@ -149,14 +158,19 @@ export default async function Home() {
       {/* ── GALERI ── */}
       <section id="galeri" className="h-screen snap-start flex items-center bg-white text-gray-900">
         <div className="pt-16 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold mb-1 text-center">Galeri</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1 text-center">Galeri</h2>
           <p className="text-gray-500 text-center mb-6">Kepercayaan klien adalah kebanggaan kami</p>
           {portfolios.length === 0 ? (
             <p className="text-center text-gray-400">Belum ada portfolio tersedia.</p>
           ) : (
             <div className="overflow-hidden">
-              <div className="animate-marquee-reverse" style={{'--marquee-duration': `${portfolios.length * 3}s`} as React.CSSProperties}>
-                {[...portfolios, ...portfolios].map((portfolio, i) => (
+              {(() => {
+                const repeats = Math.ceil(MIN_ITEMS / portfolios.length)
+                const set = Array(repeats).fill(portfolios).flat()
+                const duration = `${set.length * 3}s`
+                return (
+              <div className="animate-marquee-reverse" style={{'--marquee-duration': duration} as React.CSSProperties}>
+                {[...set, ...set].map((portfolio, i) => (
                   <Link key={`${portfolio._id}-${i}`} href={`/portfolio/${portfolio.slug.current}`} className="group flex-shrink-0 w-64 mx-3">
                     <div className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden">
                       {portfolio.images && portfolio.images[0] && (
@@ -176,6 +190,7 @@ export default async function Home() {
                   </Link>
                 ))}
               </div>
+                )})()}
             </div>
           )}
         </div>
