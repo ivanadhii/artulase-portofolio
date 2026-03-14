@@ -23,7 +23,7 @@ push:
 	git add . && git commit -m "$$msg" && git push
 
 pull:
-	git pull
+	git pull && $(MAKE) rebuild
 
 get-schema:
 	@if [ -z "$(SANITY_AUTH_TOKEN)" ]; then \
