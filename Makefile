@@ -20,7 +20,7 @@ deploy-cms:
 
 push:
 	@msg=$(if $(m),$(m),"update"); \
-	git status && git add . && git commit -m "$$msg" && git push
+	git add . && git commit -m "$$msg" && git push
 
 pull:
 	git status && git pull && $(MAKE) rebuild
