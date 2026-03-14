@@ -146,9 +146,9 @@ export default async function Home() {
       </section>
 
       {/* ── GALERI ── */}
-      <section id="galeri" className="h-screen snap-start flex items-center bg-white">
+      <section id="galeri" className="h-screen snap-start flex items-center bg-white text-gray-900">
         <div className="pt-16 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1 text-center">Galeri</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-1 text-center">Galeri</h2>
           <p className="text-gray-500 text-center mb-6">Kepercayaan klien adalah kebanggaan kami</p>
           {portfolios.length === 0 ? (
             <p className="text-center text-gray-400">Belum ada portfolio tersedia.</p>
