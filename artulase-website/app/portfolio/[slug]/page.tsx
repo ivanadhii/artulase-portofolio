@@ -29,7 +29,7 @@ export default async function PortfolioDetailPage({
       <div className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
           <Link
-            href="/portfolio"
+            href="/#galeri"
             className="text-gray-300 hover:text-white mb-4 inline-block"
           >
             ← Kembali ke Portfolio

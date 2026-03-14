@@ -20,10 +20,10 @@ deploy-cms:
 
 push:
 	@msg=$(if $(m),$(m),"update"); \
-	git add . && git commit -m "$$msg" && git push
+	git status && git add . && git commit -m "$$msg" && git push
 
 pull:
-	git pull && $(MAKE) rebuild
+	git status && git pull && $(MAKE) rebuild
 
 get-schema:
 	@if [ -z "$(SANITY_AUTH_TOKEN)" ]; then \

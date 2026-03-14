@@ -147,32 +147,34 @@ export default async function Home() {
 
       {/* ── GALERI ── */}
       <section id="galeri" className="h-screen snap-start flex items-center bg-white">
-        <div className="container mx-auto px-8 pt-16 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">Galeri</h2>
-          <p className="text-gray-500 text-center mb-8">Kepercayaan klien adalah kebanggaan kami</p>
+        <div className="pt-16 w-full">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1 text-center">Galeri</h2>
+          <p className="text-gray-500 text-center mb-6">Kepercayaan klien adalah kebanggaan kami</p>
           {portfolios.length === 0 ? (
             <p className="text-center text-gray-400">Belum ada portfolio tersedia.</p>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {portfolios.slice(0, 8).map((portfolio) => (
-                <Link key={portfolio._id} href={`/portfolio/${portfolio.slug.current}`} className="group">
-                  <div className="relative h-40 bg-gray-100 rounded-xl overflow-hidden">
-                    {portfolio.images && portfolio.images[0] && (
-                      <Image
-                        src={urlFor(portfolio.images[0]).width(400).height(300).url()}
-                        alt={portfolio.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-end">
-                      <p className="text-white text-sm font-medium p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {portfolio.title}
-                      </p>
+            <div className="overflow-hidden">
+              <div className="animate-marquee-reverse">
+                {[...portfolios, ...portfolios].map((portfolio, i) => (
+                  <Link key={`${portfolio._id}-${i}`} href={`/portfolio/${portfolio.slug.current}`} className="group flex-shrink-0 w-64 mx-3">
+                    <div className="relative aspect-square bg-gray-100 rounded-xl overflow-hidden">
+                      {portfolio.images && portfolio.images[0] && (
+                        <Image
+                          src={urlFor(portfolio.images[0]).width(400).height(400).url()}
+                          alt={portfolio.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-end">
+                        <p className="text-white text-sm font-medium p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                          {portfolio.title}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
           )}
         </div>
