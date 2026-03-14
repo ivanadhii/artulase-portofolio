@@ -44,9 +44,9 @@ export default async function ServiceDetailPage({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             {(service.image || service.icon) && (
-              <div className="relative aspect-square rounded-lg overflow-hidden mb-8">
+              <div className="relative w-64 h-64 rounded-lg overflow-hidden mb-8">
                 <Image
-                  src={urlFor(service.image ?? service.icon!).width(800).height(800).url()}
+                  src={urlFor(service.image ?? service.icon!).width(512).height(512).url()}
                   alt={service.title}
                   fill
                   className="object-cover"
