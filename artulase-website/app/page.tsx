@@ -186,8 +186,10 @@ export default async function Home() {
       <section id="kontak" className="h-screen snap-start flex items-center bg-gray-900 text-white">
         <div className="container mx-auto px-8 pt-16 w-full">
           <h2 className="text-3xl md:text-4xl font-bold mb-2 text-center">Kontak Kami</h2>
-          <p className="text-gray-400 text-center mb-10">Hubungi kami untuk kebutuhan printing dan packaging Anda</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <p className="text-gray-400 text-center mb-6">Hubungi kami untuk kebutuhan printing dan packaging Anda</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Info + Map kiri-kanan */}
+            <div className="grid grid-cols-2 gap-4 content-start">
             {contact?.email && (
               <a href={`mailto:${contact.email}`} className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors text-center">
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -233,6 +235,41 @@ export default async function Home() {
                 <p className="text-white font-medium text-sm">{contact.address.city}, {contact.address.province}</p>
               </div>
             )}
+            </div>
+
+            {/* Peta */}
+            <div className="rounded-xl overflow-hidden h-64 lg:h-full min-h-48">
+              {contact?.mapUrl ? (
+                <div className="relative h-full">
+                  <iframe
+                    src={contact.mapUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Lokasi Artulase"
+                    sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                    className="h-full w-full"
+                  />
+                  {process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL && (
+                    <a
+                      href={process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute bottom-3 right-3 bg-white text-gray-900 text-xs font-semibold px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      Buka di Google Maps
+                    </a>
+                  )}
+                </div>
+              ) : (
+                <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                  <p className="text-gray-500 text-sm">Peta belum tersedia</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
