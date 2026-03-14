@@ -10,7 +10,7 @@ import type {
   Hero,
 } from '@/types/sanity'
 
-const revalidate = { next: { revalidate: 3600 } }
+const revalidate = { next: { revalidate: 3600, tags: ['sanity'] } }
 
 // Services
 export async function getServices(): Promise<Service[]> {
